@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Hangman</string>
+    <string name="app_developer">powered by Aybars and Tobias</string>
 </resources>
