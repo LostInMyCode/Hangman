@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Hangman</string>
     <string name="app_developer">powered by Aybars and Tobias</string>
+    <string name="user_entry">User</string>
+    <string name="password_entry">Passwort</string>
+    <string name="create_account">Create Account</string>
 </resources>
