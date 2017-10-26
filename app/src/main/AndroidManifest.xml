@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
+        <activity android:name=".HelpActivity"></activity>
         <activity android:name=".Help"></activity>
     </application>
 
