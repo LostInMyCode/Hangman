@@ -20,14 +20,13 @@ public class MainActivity extends AppCompatActivity {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                changeActivity();
+                changeToLoginActivity();
             }
         };
         timer.schedule(timerTask, 5000);
     }
 
-    private void changeActivity() {
-        System.out.println("TEST");
+    private void changeToLoginActivity() {
         startActivity(new Intent(MainActivity.this, LoginActivity.class));
     }
 }
