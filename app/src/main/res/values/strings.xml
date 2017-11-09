@@ -8,4 +8,7 @@
     <string name="solo_player">Einzelspieler</string>
     <string name="multi_player">Mehrspieler</string>
     <string name="local_player">Lokales Spiel</string>
+    <string name="settings">Einstellungen</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="logout">Ausloggen</string>
 </resources>
