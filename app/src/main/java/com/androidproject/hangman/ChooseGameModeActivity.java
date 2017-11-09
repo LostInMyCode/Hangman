@@ -12,6 +12,7 @@ public class ChooseGameModeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_game_mode);
+        initSoloGameButton();
         initSettingsButton();
     }
 
@@ -20,17 +21,31 @@ public class ChooseGameModeActivity extends AppCompatActivity {
 
     }
 
+    private void initSoloGameButton() {
+        Button loginButton = (Button) findViewById(R.id.solo_game_button);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeToSoloGameActivity();
+            }
+        });
+    }
+
     private void initSettingsButton() {
         Button loginButton = (Button) findViewById(R.id.settings_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            changeToSettingsActivity();
+                changeToSettingsActivity();
             }
         });
     }
 
     private void changeToSettingsActivity() {
         startActivity(new Intent(ChooseGameModeActivity.this, SettingsActivity.class));
+    }
+
+    private void changeToSoloGameActivity() {
+        startActivity(new Intent(ChooseGameModeActivity.this, SoloGameActivity.class));
     }
 }
