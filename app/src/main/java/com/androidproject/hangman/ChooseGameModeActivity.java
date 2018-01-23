@@ -46,6 +46,6 @@ public class ChooseGameModeActivity extends AppCompatActivity {
     }
 
     private void changeToSoloGameActivity() {
-        startActivity(new Intent(ChooseGameModeActivity.this, SoloGameActivity.class));
+        startActivity(new Intent(this, SoloGameActivity.class));
     }
 }
