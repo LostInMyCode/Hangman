@@ -18,7 +18,7 @@ public class SettingsActivity extends AppCompatActivity {
         initLogoutBtn();
     }
 
-    private void changeToLoginActivity() {
+    private void changeTLoginActivity() {
         startActivity(new Intent(SettingsActivity.this, LoginActivity.class));
     }
 
@@ -27,7 +27,7 @@ public class SettingsActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeToLoginActivity();
+                changeTLoginActivity();
             }
         });
     }

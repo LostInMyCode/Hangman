@@ -42,4 +42,5 @@
     <string name="letter_z">z</string>
     <string name="a">A</string>
     <string name="title_activity_create_account">Sign in</string>
+    <string name="logout">Ausloggen</string>
 </resources>

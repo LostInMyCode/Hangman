@@ -25,6 +25,9 @@ public class LoginActivity extends AppCompatActivity {
     ChooseGameModeActivity gameMode = new ChooseGameModeActivity();
     Boolean loginStatus;
 
+    ChooseGameModeActivity gameMode = new ChooseGameModeActivity();
+    Boolean loginStatus;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initLoginBtn() {
         Button loginButton = (Button) findViewById(R.id.btnLogin);
+        Button loginButton = (Button) findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,11 +97,11 @@ public class LoginActivity extends AppCompatActivity {
                     changeToChooseGameModeActivity();
                 } else {
                     AlertHandler.showStandardAlert(getApplicationContext(),"Info", "Du musst dich zuerst einloggen");
+                    showAlert("Info","Du musst dich zuerst einloggen");
                 }
             }
         });
     }
-
 
     public void generateUser(String username, String password)
     {
