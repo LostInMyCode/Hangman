@@ -1,8 +1,10 @@
 package com.androidproject.hangman;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,11 +22,16 @@ public class LoginActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword;
     private Button btnSignUp, btnLogIn;
 
+    ChooseGameModeActivity gameMode = new ChooseGameModeActivity();
+    Boolean loginStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_vc);
+        initLoginBtn();
+        /** TODO: Entfernen, wenn FireBase implementiert **/
+        setLoginStatus(true);
         auth = FirebaseAuth.getInstance();
 
         inputEmail = (EditText) findViewById(R.id.etUsername);
@@ -33,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         btnLogIn = (Button) findViewById(R.id.btnLogin);
 
     }
-
     public void test(View v) {
         Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
         startActivity(intent);
@@ -73,9 +79,55 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
+
+    private void initLoginBtn() {
+        Button loginButton = (Button) findViewById(R.id.btnLogin);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getLoginStatus()) {
+                    changeToChooseGameModeActivity();
+                } else {
+                    AlertHandler.showStandardAlert(getApplicationContext(),"Info", "Du musst dich zuerst einloggen");
+                }
+            }
+        });
+    }
+
+
     public void generateUser(String username, String password)
     {
 
     }
 
+    private void changeToChooseGameModeActivity() {
+        startActivity(new Intent(LoginActivity.this, ChooseGameModeActivity.class));
+    }
+
+    public void setLoginStatus(Boolean status) {
+        this.loginStatus = status;
+    }
+
+    private Boolean getLoginStatus() {
+        return this.loginStatus;
+    }
+
+    private void showAlert(String title, String message) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.create();
+        alertDialogBuilder.setTitle(title);
+        alertDialogBuilder.setMessage(message);
+        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.setNeutralButton("OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        alertDialogBuilder.show();
+    }
 }
