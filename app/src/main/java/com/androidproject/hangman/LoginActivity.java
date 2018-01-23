@@ -25,15 +25,11 @@ public class LoginActivity extends AppCompatActivity {
     ChooseGameModeActivity gameMode = new ChooseGameModeActivity();
     Boolean loginStatus;
 
-    ChooseGameModeActivity gameMode = new ChooseGameModeActivity();
-    Boolean loginStatus;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_vc);
         initLoginBtn();
-        /** TODO: Entfernen, wenn FireBase implementiert **/
         setLoginStatus(true);
         auth = FirebaseAuth.getInstance();
 
@@ -89,7 +85,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initLoginBtn() {
         Button loginButton = (Button) findViewById(R.id.btnLogin);
-        Button loginButton = (Button) findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
