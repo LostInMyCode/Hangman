@@ -16,7 +16,7 @@ import java.util.TimerTask;
 
 public class SoloGameActivity extends AppCompatActivity {
     
-    int maxTry = 9;
+    int maxTry = 10;
     int failureCount = 0;
     String pressedLetter = "";
     String missingWord = "";
@@ -53,7 +53,7 @@ public class SoloGameActivity extends AppCompatActivity {
         } else {
             switchImageView(failureCount++);
             if (failureCount == maxTry) {
-                AlertHandler.showGameOverAlert(getApplicationContext());
+                AlertHandler.showGameOverAlert(this);
             }
         }
         Log.d("1",missingWord);
@@ -65,7 +65,6 @@ public class SoloGameActivity extends AppCompatActivity {
                 pressedLetter = "a";
                 comparePressedLetterWithWord();
                 break;
-                /*
             case R.id.letterButton_b:
                 pressedLetter = "b";
                 comparePressedLetterWithWord();
@@ -159,14 +158,13 @@ public class SoloGameActivity extends AppCompatActivity {
                 comparePressedLetterWithWord();
                 break;
             case R.id.letterButton_y:
-                pressedLetter = "y";;
+                pressedLetter = "y";
                 comparePressedLetterWithWord();
                 break;
             case R.id.letterButton_z:
                 pressedLetter = "z";
                 comparePressedLetterWithWord();
                 break;
-                */
         }
     }
 
