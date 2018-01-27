@@ -34,7 +34,7 @@ public class SoloGameActivity extends AppCompatActivity {
 
     private void initStoredData() {
         AppData appData = new AppData(this);
-        missingWord = appData.getStoredData(1);
+        missingWord = appData.getStoredData(0);
     }
 
     private void initImageView() {
@@ -44,12 +44,31 @@ public class SoloGameActivity extends AppCompatActivity {
 
     private void initTextView() {
         TextView textView = (TextView) findViewById(R.id.HangmanTextView);
+        textView.setText("");
         textView.setKeyListener(null);
+    }
+
+    private void addLettersToTextView() {
+        TextView textView = (TextView) findViewById(R.id.HangmanTextView);
+        for (int i = 0; i < missingWord.length(); i++) {
+            if (missingWord.toLowerCase().charAt(i) == pressedLetter.charAt(0)) {
+                textView.append(pressedLetter.toString());
+            }
+        }
+    }
+
+    private void checkIfTextViewContainsAllMissingWords() {
+        TextView textView = (TextView) findViewById(R.id.HangmanTextView);
+        textView.getText().toString().replace(" ","");
+        if (textView.getText().toString().length() == missingWord.length()) {
+            AlertHandler.showWinningAlert(this,missingWord);
+        }
     }
 
     private void comparePressedLetterWithWord() {
         if (missingWord.toLowerCase().contains(pressedLetter)) {
-
+            this.addLettersToTextView();
+            this.checkIfTextViewContainsAllMissingWords();
         } else {
             switchImageView(failureCount++);
             if (failureCount == maxTry) {

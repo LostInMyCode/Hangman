@@ -37,8 +37,8 @@ public class LoginActivity extends AppCompatActivity {
         inputPassword = (EditText) findViewById(R.id.etPassword);
         btnSignUp = (Button) findViewById(R.id.btnCreateAccount);
         btnLogIn = (Button) findViewById(R.id.btnLogin);
-
     }
+
     public void test(View v) {
         Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
         startActivity(intent);
