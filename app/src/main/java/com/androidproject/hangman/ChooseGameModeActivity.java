@@ -27,7 +27,7 @@ public class ChooseGameModeActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeToSoloGameActivity();
+                NavigationHandler.changeToSoloGameActivity(getApplicationContext());
             }
         });
     }
@@ -37,7 +37,7 @@ public class ChooseGameModeActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeToLocalGameActivity();
+                NavigationHandler.changeToLocalGameActivity(getApplicationContext());
             }
         });
     }
@@ -47,20 +47,9 @@ public class ChooseGameModeActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeToSettingsActivity();
+                NavigationHandler.changeToSettingsActivity(getApplicationContext());
             }
         });
     }
 
-    private void changeToSettingsActivity() {
-        startActivity(new Intent(ChooseGameModeActivity.this, SettingsActivity.class));
-    }
-
-    private void changeToSoloGameActivity() {
-        startActivity(new Intent(this, SoloGameActivity.class));
-    }
-
-    private void changeToLocalGameActivity() {
-        startActivity(new Intent(this, LocalGameActivity.class));
-    }
 }

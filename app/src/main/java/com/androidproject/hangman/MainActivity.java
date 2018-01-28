@@ -49,13 +49,10 @@ public class MainActivity extends AppCompatActivity {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                changeToLoginActivity();
+                NavigationHandler.changeToLoginActivity(getApplicationContext());
             }
         };
         timer.schedule(timerTask, 5000);
     }
 
-    private void changeToLoginActivity() {
-        startActivity(new Intent(MainActivity.this, LoginActivity.class));
-    }
 }

@@ -18,17 +18,14 @@ public class SettingsActivity extends AppCompatActivity {
         initLogoutBtn();
     }
 
-    private void changeTLoginActivity() {
-        startActivity(new Intent(SettingsActivity.this, LoginActivity.class));
-    }
-
     private void initLogoutBtn() {
         Button loginButton = (Button) findViewById(R.id.logout_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeTLoginActivity();
+                NavigationHandler.changeToLoginActivity(getApplicationContext());
             }
         });
     }
+
 }
