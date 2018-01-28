@@ -39,6 +39,9 @@
     <string name="letter_x">x</string>
     <string name="letter_y">y</string>
     <string name="letter_z">z</string>
+    <string name="letter_ä">ä</string>
+    <string name="letter_ö">ö</string>
+    <string name="letter_ü">ü</string>
     <string name="a">A</string>
     <string name="title_activity_create_account">Sign in</string>
     <string name="logout">Ausloggen</string>

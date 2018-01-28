@@ -187,6 +187,18 @@ public class SoloGameActivity extends AppCompatActivity {
                 pressedLetter = "z";
                 comparePressedLetterWithWord(R.id.letterButton_z);
                 break;
+            case R.id.letterButton_ä:
+                pressedLetter = "ä";
+                comparePressedLetterWithWord(R.id.letterButton_ä);
+                break;
+            case R.id.letterButton_ö:
+                pressedLetter = "ö";
+                comparePressedLetterWithWord(R.id.letterButton_ö);
+                break;
+            case R.id.letterButton_ü:
+                pressedLetter = "ü";
+                comparePressedLetterWithWord(R.id.letterButton_ü);
+                break;
         }
     }
 

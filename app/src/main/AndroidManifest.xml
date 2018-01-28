@@ -27,7 +27,7 @@
         <activity android:name=".ChooseGameModeActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".SoloGameActivity" />
-      
+        <activity android:name=".LocalGameActivity"></activity>
     </application>
 
 </manifest>

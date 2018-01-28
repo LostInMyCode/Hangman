@@ -6,6 +6,39 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/letterButton_ü"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:onClick="letterBtnPressed"
+        android:text="@string/letter_ü"
+        app:layout_constraintStart_toEndOf="@+id/letterButton_ö"
+        app:layout_constraintTop_toBottomOf="@+id/letterButton_u" />
+
+    <Button
+        android:id="@+id/letterButton_ö"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:onClick="letterBtnPressed"
+        android:text="@string/letter_ö"
+        app:layout_constraintStart_toEndOf="@+id/letterButton_ä"
+        app:layout_constraintTop_toBottomOf="@+id/letterButton_t" />
+
+    <Button
+        android:id="@+id/letterButton_ä"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:onClick="letterBtnPressed"
+        android:text="@string/letter_ä"
+        app:layout_constraintStart_toEndOf="@+id/letterButton_z"
+        app:layout_constraintTop_toBottomOf="@+id/letterButton_s" />
+
+    <Button
         android:id="@+id/letterButton_z"
         android:layout_width="40dp"
         android:layout_height="40dp"
