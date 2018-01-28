@@ -79,7 +79,6 @@ public class SoloGameActivity extends AppCompatActivity {
         }
         Button btn = (Button)findViewById(pressedButton);
         btn.setEnabled(false);
-        Log.d("1",missingWord);
     }
 
     public void letterBtnPressed(View view) {

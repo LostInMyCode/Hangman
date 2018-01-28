@@ -33,7 +33,7 @@ public class AlertHandler {
         alertDialogBuilder.create();
         alertDialogBuilder.setTitle("Game Over");
         alertDialogBuilder.setMessage("Du hast verloren.\n");
-        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.setCancelable(false);
         alertDialogBuilder.setNeutralButton("OK",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -50,7 +50,7 @@ public class AlertHandler {
         alertDialogBuilder.create();
         alertDialogBuilder.setTitle("Du hast gewonnen");
         alertDialogBuilder.setMessage("Glückwunsch du hast gewonnen. Du hast das Wort : " + solutionWord + " richtig erraten.\n");
-        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.setCancelable(false);
         alertDialogBuilder.setNeutralButton("OK",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
