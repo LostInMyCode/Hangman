@@ -8,6 +8,9 @@ import android.widget.EditText;
 
 public class LocalGameActivity extends AppCompatActivity {
 
+    String expectedWord = "";
+    EditText editText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +20,7 @@ public class LocalGameActivity extends AppCompatActivity {
     }
 
     private void initEditTextView() {
-        EditText editText = (EditText) findViewById(R.id.local_game_userinputview);
+        this.editText = (EditText) findViewById(R.id.local_game_userinputview);
     }
 
     private void initAcceptButton() {
@@ -25,8 +28,19 @@ public class LocalGameActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (!editText.getText().toString().isEmpty()) {
+                    setExpectedWord(editText.getText().toString());
+                    NavigationHandler.changeToSoloGameActivityWithExpectedWord(getApplicationContext(), getExpectedWord());
+                }
             }
         });
+    }
+
+    private void setExpectedWord(String expectedWord) {
+        this.expectedWord = expectedWord;
+    }
+
+    private String getExpectedWord() {
+        return expectedWord;
     }
 }

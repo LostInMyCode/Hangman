@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (getLoginStatus()) {
-                    changeToChooseGameModeActivity();
+                    NavigationHandler.changeToChooseGameModeActivity(getApplicationContext());
                 } else {
                     AlertHandler.showStandardAlert(getApplicationContext(),"Info", "Du musst dich zuerst einloggen");
                     showAlert("Info","Du musst dich zuerst einloggen");
@@ -101,10 +101,6 @@ public class LoginActivity extends AppCompatActivity {
     public void generateUser(String username, String password)
     {
 
-    }
-
-    private void changeToChooseGameModeActivity() {
-        startActivity(new Intent(LoginActivity.this, ChooseGameModeActivity.class));
     }
 
     public void setLoginStatus(Boolean status) {

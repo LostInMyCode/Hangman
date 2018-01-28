@@ -26,15 +26,19 @@ public class SoloGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solo_game);
-        appData.storeData();
-        initStoredData();
+        if (this.getIntent().hasExtra(NavigationHandler.SINGLE_PLAYER_KEY)) {
+            appData.storeData();
+            initStoredData();
+        } else {
+            missingWord = getIntent().getStringExtra(NavigationHandler.EXPECTED_WORD_KEY);
+        }
+        Log.d("1","/nDas gesuchte Wort : " + missingWord);
         initImageView();
         initTextView();
     }
 
     private void initStoredData() {
         missingWord = appData.getStoredRandomWord();
-        Log.d("1","/nDas gesuchte Wort : " + missingWord);
     }
 
     private void initImageView() {
@@ -46,6 +50,11 @@ public class SoloGameActivity extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.HangmanTextView);
         textView.setText("");
         textView.setKeyListener(null);
+    }
+
+    @Override
+    public void onBackPressed() {
+        NavigationHandler.changeToChooseGameModeActivity(getApplicationContext());
     }
 
     private void addLettersToTextView() {
