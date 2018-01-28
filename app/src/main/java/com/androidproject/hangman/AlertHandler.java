@@ -28,11 +28,11 @@ public class AlertHandler {
         alertDialogBuilder.show();
     }
 
-    public static void showGameOverAlert(final Context context) {
+    public static void showGameOverAlert(final Context context, String solutionWord) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         alertDialogBuilder.create();
         alertDialogBuilder.setTitle("Game Over");
-        alertDialogBuilder.setMessage("Du hast verloren.\n");
+        alertDialogBuilder.setMessage("Du hast verloren.\nDie richtige Lösung war " + solutionWord + " .");
         alertDialogBuilder.setCancelable(false);
         alertDialogBuilder.setNeutralButton("OK",
                 new DialogInterface.OnClickListener() {

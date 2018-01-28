@@ -74,7 +74,7 @@ public class SoloGameActivity extends AppCompatActivity {
         } else {
             switchImageView(failureCount++);
             if (failureCount == maxTry) {
-                AlertHandler.showGameOverAlert(this);
+                AlertHandler.showGameOverAlert(this, missingWord);
             }
         }
         Button btn = (Button)findViewById(pressedButton);
