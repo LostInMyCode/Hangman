@@ -19,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
 
 
-    AppData appData = new AppData(this);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         setTimer();
-        appData.storeData();
     }
 
     private void setTimer() {

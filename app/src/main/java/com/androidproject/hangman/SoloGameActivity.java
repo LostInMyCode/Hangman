@@ -17,24 +17,24 @@ import java.util.TimerTask;
 public class SoloGameActivity extends AppCompatActivity {
     
     int maxTry = 10;
-    int failureCount = 0;
+    int failureCount = 1;
     String pressedLetter = "";
     String missingWord = "";
+    AppData appData = new AppData(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solo_game);
+        appData.storeData();
         initStoredData();
         initImageView();
         initTextView();
-        AppData appData = new AppData(this);
-        Log.d("1","/nDas gesuchte Wort : " + appData.getStoredData(1));
     }
 
     private void initStoredData() {
-        AppData appData = new AppData(this);
-        missingWord = appData.getStoredData(0);
+        missingWord = appData.getStoredRandomWord();
+        Log.d("1","/nDas gesuchte Wort : " + missingWord);
     }
 
     private void initImageView() {
@@ -50,9 +50,11 @@ public class SoloGameActivity extends AppCompatActivity {
 
     private void addLettersToTextView() {
         TextView textView = (TextView) findViewById(R.id.HangmanTextView);
-        for (int i = 0; i < missingWord.length(); i++) {
-            if (missingWord.toLowerCase().charAt(i) == pressedLetter.charAt(0)) {
-                textView.append(pressedLetter.toString());
+        if (!textView.getText().toString().contains(pressedLetter)) {
+            for (int i = 0; i < missingWord.length(); i++) {
+                if (missingWord.toLowerCase().charAt(i) == pressedLetter.charAt(0)) {
+                    textView.append(pressedLetter.toString());
+                }
             }
         }
     }
@@ -61,11 +63,11 @@ public class SoloGameActivity extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.HangmanTextView);
         textView.getText().toString().replace(" ","");
         if (textView.getText().toString().length() == missingWord.length()) {
-            AlertHandler.showWinningAlert(this,missingWord);
+            AlertHandler.showWinningAlert(this, missingWord);
         }
     }
 
-    private void comparePressedLetterWithWord() {
+    private void comparePressedLetterWithWord(int pressedButton) {
         if (missingWord.toLowerCase().contains(pressedLetter)) {
             this.addLettersToTextView();
             this.checkIfTextViewContainsAllMissingWords();
@@ -75,6 +77,8 @@ public class SoloGameActivity extends AppCompatActivity {
                 AlertHandler.showGameOverAlert(this);
             }
         }
+        Button btn = (Button)findViewById(pressedButton);
+        btn.setEnabled(false);
         Log.d("1",missingWord);
     }
 
@@ -82,107 +86,107 @@ public class SoloGameActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.letterButton_a:
                 pressedLetter = "a";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_a);
                 break;
             case R.id.letterButton_b:
                 pressedLetter = "b";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_b);
                 break;
             case R.id.letterButton_c:
                 pressedLetter = "c";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_c);
                 break;
             case R.id.letterButton_d:
                 pressedLetter = "d";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_d);
                 break;
             case R.id.letterButton_e:
                 pressedLetter = "e";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_e);
                 break;
             case R.id.letterButton_f:
                 pressedLetter = "f";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_f);
                 break;
             case R.id.letterButton_g:
                 pressedLetter = "g";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_g);
                 break;
             case R.id.letterButton_h:
                 pressedLetter = "h";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_h);
                 break;
             case R.id.letterButton_i:
                 pressedLetter = "i";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_i);
                 break;
             case R.id.letterButton_j:
                 pressedLetter = "j";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_j);
                 break;
             case R.id.letterButton_k:
                 pressedLetter = "k";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_k);
                 break;
             case R.id.letterButton_l:
                 pressedLetter = "l";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_l);
                 break;
             case R.id.letterButton_m:
                 pressedLetter = "m";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_m);
                 break;
             case R.id.letterButton_n:
                 pressedLetter = "n";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_n);
                 break;
             case R.id.letterButton_o:
                 pressedLetter = "o";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_o);
                 break;
             case R.id.letterButton_p:
                 pressedLetter = "p";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_p);
                 break;
             case R.id.letterButton_q:
                 pressedLetter = "q";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_q);
                 break;
             case R.id.letterButton_r:
                 pressedLetter = "r";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_r);
                 break;
             case R.id.letterButton_s:
                 pressedLetter = "s";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_s);
                 break;
             case R.id.letterButton_t:
                 pressedLetter = "t";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_t);
                 break;
             case R.id.letterButton_u:
                 pressedLetter = "u";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_u);
                 break;
             case R.id.letterButton_v:
                 pressedLetter = "v";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_v);
                 break;
             case R.id.letterButton_w:
                 pressedLetter = "w";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_w);
                 break;
             case R.id.letterButton_x:
                 pressedLetter = "x";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_x);
                 break;
             case R.id.letterButton_y:
                 pressedLetter = "y";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_y);
                 break;
             case R.id.letterButton_z:
                 pressedLetter = "z";
-                comparePressedLetterWithWord();
+                comparePressedLetterWithWord(R.id.letterButton_z);
                 break;
         }
     }
