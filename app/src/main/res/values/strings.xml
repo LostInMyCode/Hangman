@@ -13,6 +13,8 @@
     <string name="settings">Einstellungen</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="activity_solo_game_imageview">HangmanImageView</string>
+    <string name="local_game_challenge_text">Bitte gib das zu ratende Wort ein.</string>
+    <string name="accept_button_title">Bestätigen</string>
     <string name="letter_a">a</string>
     <string name="letter_b">b</string>
     <string name="letter_c">c</string>
