@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,6 +21,9 @@ public class SoloGameActivity extends AppCompatActivity {
     int failureCount = 1;
     String pressedLetter = "";
     String missingWord = "";
+    String enteredCorrectWord = "";
+    String alreadyCompletedWord = "";
+    ArrayList<String> guessedLetters = new ArrayList<>();
     AppData appData = new AppData(this);
 
     @Override
@@ -59,19 +63,25 @@ public class SoloGameActivity extends AppCompatActivity {
 
     private void addLettersToTextView() {
         TextView textView = (TextView) findViewById(R.id.HangmanTextView);
-        if (!textView.getText().toString().contains(pressedLetter)) {
-            for (int i = 0; i < missingWord.length(); i++) {
-                if (missingWord.toLowerCase().charAt(i) == pressedLetter.charAt(0)) {
-                    textView.append(pressedLetter.toString());
-                }
+        alreadyCompletedWord = "";
+        textView.setText("");
+        if (missingWord.toLowerCase().contains(pressedLetter)){
+            guessedLetters.add(pressedLetter);
+        }
+        for (int i = 0; i < missingWord.length(); i++) {
+            if (guessedLetters.contains(String.valueOf(missingWord.toLowerCase().charAt(i)))) {
+                alreadyCompletedWord = alreadyCompletedWord.concat(String.valueOf(missingWord.toLowerCase().charAt(i)));
+            } else {
+                alreadyCompletedWord = alreadyCompletedWord.concat("_");
             }
         }
+        textView.setText(this.alreadyCompletedWord);
     }
 
     private void checkIfTextViewContainsAllMissingWords() {
         TextView textView = (TextView) findViewById(R.id.HangmanTextView);
         textView.getText().toString().replace(" ","");
-        if (textView.getText().toString().length() == missingWord.length()) {
+        if (textView.getText().toString().equals(missingWord.toLowerCase())) {
             AlertHandler.showWinningAlert(this, missingWord);
         }
     }
