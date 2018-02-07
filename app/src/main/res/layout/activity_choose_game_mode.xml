@@ -9,12 +9,13 @@
     <Button
         android:id="@+id/settings_button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="@string/settings"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/local_game_button" />
@@ -22,12 +23,13 @@
     <Button
         android:id="@+id/local_game_button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="@string/local_player"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/settings_button"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/multiplayer_button" />
@@ -35,12 +37,13 @@
     <Button
         android:id="@+id/multiplayer_button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="@string/multi_player"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/local_game_button"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/solo_game_button" />
@@ -48,13 +51,14 @@
     <Button
         android:id="@+id/solo_game_button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:text="@string/solo_player"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/multiplayer_button"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="100dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
