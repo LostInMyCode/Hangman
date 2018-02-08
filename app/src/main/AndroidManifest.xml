@@ -23,8 +23,6 @@
         </activity>
         <activity android:name=".LoginActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".HelpActivity"
-            android:screenOrientation="portrait"/>
         <activity android:name=".CreateAccountActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".ChooseGameModeActivity"
