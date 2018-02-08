@@ -28,11 +28,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/user_entry"
-        app:layout_constraintBottom_toBottomOf="@+id/etUsername"
-        app:layout_constraintEnd_toStartOf="@+id/etUsername"
+        app:layout_constraintBottom_toBottomOf="@+id/etEmail"
+        app:layout_constraintEnd_toStartOf="@+id/etEmail"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/etUsername"
+        app:layout_constraintTop_toTopOf="@+id/etEmail"
         app:layout_constraintVertical_bias="0.481"
         tools:layout_constraintBottom_creator="1" />
 
@@ -68,12 +68,12 @@
         android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/etUsername"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername"
+        app:layout_constraintStart_toStartOf="@+id/etEmail"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail"
         tools:layout_constraintTop_creator="1" />
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"

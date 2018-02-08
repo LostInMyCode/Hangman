@@ -29,14 +29,21 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_vc);
+        initEditText();
         initLoginBtn();
         setLoginStatus(true);
         auth = FirebaseAuth.getInstance();
 
-        inputEmail = (EditText) findViewById(R.id.etUsername);
+        inputEmail = (EditText) findViewById(R.id.etEmail);
         inputPassword = (EditText) findViewById(R.id.etPassword);
         btnSignUp = (Button) findViewById(R.id.btnCreateAccount);
         btnLogIn = (Button) findViewById(R.id.btnLogin);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        initEditText();
     }
 
     public void test(View v) {
@@ -81,6 +88,11 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
+    }
+
+    private void initEditText() {
+        EditText emailEditText = (EditText) findViewById(R.id.etEmail);
+        emailEditText.requestFocus();
     }
 
     private void initLoginBtn() {

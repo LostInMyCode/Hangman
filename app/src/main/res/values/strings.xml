@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Hangman</string>
     <string name="app_developer">powered by Aybars and Tobias</string>
-    <string name="user_entry">Benutzername</string>
+    <string name="user_entry">E-Mail</string>
     <string name="mail_adress">E-Mailadresse</string>
     <string name="password_entry">Passwort</string>
     <string name="repeat_password_entry">Passwort wiederholen</string>

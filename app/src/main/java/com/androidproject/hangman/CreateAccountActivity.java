@@ -27,7 +27,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
         auth = FirebaseAuth.getInstance();
 
-        inputEmail = (EditText) findViewById(R.id.etUsername);
+        inputEmail = (EditText) findViewById(R.id.etEmail);
         inputPassword = (EditText) findViewById(R.id.etPassword);
         inputRepeatEmail = (EditText) findViewById(R.id.etRepeatPassword);
         btnSignUp = (Button) findViewById(R.id.btnCreateAccount);
