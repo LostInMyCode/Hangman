@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Hangman</string>
     <string name="app_developer">powered by Aybars and Tobias</string>
-    <string name="user_entry">User</string>
+    <string name="user_entry">Benutzername</string>
     <string name="mail_adress">E-Mailadresse</string>
     <string name="password_entry">Passwort</string>
     <string name="repeat_password_entry">Passwort wiederholen</string>
-    <string name="create_account">Create Account</string>
-    <string name="login">Login</string>
+    <string name="create_account">Registrieren</string>
+    <string name="login">Anmelden</string>
     <string name="solo_player">Einzelspieler</string>
     <string name="multi_player">Mehrspieler</string>
     <string name="local_player">Lokales Spiel</string>
@@ -15,6 +15,7 @@
     <string name="activity_solo_game_imageview">HangmanImageView</string>
     <string name="local_game_challenge_text">Bitte gib das zu ratende Wort ein.</string>
     <string name="accept_button_title">Bestätigen</string>
+    <string name="create_account_description">Noch kein Mitglied? Hier kannst du dich registrieren.</string>
     <string name="letter_a">a</string>
     <string name="letter_b">b</string>
     <string name="letter_c">c</string>
