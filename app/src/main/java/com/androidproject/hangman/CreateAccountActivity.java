@@ -1,6 +1,5 @@
 package com.androidproject.hangman;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -13,12 +12,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import static android.text.TextUtils.isEmpty;
 
 public class CreateAccountActivity extends AppCompatActivity {
     private FirebaseAuth auth;
-    private EditText inputEmail, inputPassword, inputRepeatEmail;
+    private EditText inputUsername, inputEmail, inputPassword, inputRepeatEmail;
     private Button btnSignUp;
 
     @Override
@@ -27,16 +28,21 @@ public class CreateAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
         auth = FirebaseAuth.getInstance();
 
-        inputEmail = (EditText) findViewById(R.id.etUsername);
+        inputUsername = (EditText) findViewById(R.id.etUsername);
+        inputEmail = (EditText) findViewById(R.id.etEmail);
         inputPassword = (EditText) findViewById(R.id.etPassword);
         inputRepeatEmail = (EditText) findViewById(R.id.etRepeatPassword);
         btnSignUp = (Button) findViewById(R.id.btnCreateAccount);
     }
 
+    /**
+     * Creates a new account with the given username, email and password
+     * @param v View
+     */
     public void createAccount(View v) {
 
-        String email = inputEmail.getText().toString().trim();
-        String password = inputPassword.getText().toString().trim();
+        final String email = inputEmail.getText().toString().trim();
+        final String password = inputPassword.getText().toString().trim();
         String repeatPassword = inputRepeatEmail.getText().toString().trim();
 
         if (isEmpty(email)) {
@@ -73,8 +79,46 @@ public class CreateAccountActivity extends AppCompatActivity {
                             Toast.makeText(CreateAccountActivity.this, "Benutzer konnte nicht erstellt werden" + task.getException(),
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            startActivity(new Intent(CreateAccountActivity.this, LoginActivity.class));
-                            finish();
+                            loginAfterSuccess(email, password);
+                        }
+                    }
+                });
+
+    }
+
+    /**
+     * Logs the user in with the newly created account and adds the username to it
+     * @param email Email des neu angelegten Benutzers
+     * @param password Password des neu angelegten Benutzers
+     */
+    public void loginAfterSuccess(String email, String password) {
+        final String username = inputUsername.getText().toString().trim();
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(CreateAccountActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), "Authentifizierung fehlgeschlagen", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Authentifizierung erfolgreich ", Toast.LENGTH_LONG).show();
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(username)
+                                    //.setPhotoUri(Uri.parse("URL"))
+                                    .build();
+
+                            user.updateProfile(profileUpdates)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(CreateAccountActivity.this, "Benutzerprofil geupdated", Toast.LENGTH_LONG).show();
+                                                NavigationHandler.changeToChooseGameModeActivity(getApplicationContext());
+                                            }
+                                        }
+                                    });
+
                         }
                     }
                 });

@@ -1,14 +1,11 @@
 package com.androidproject.hangman;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import android.util.Log;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -36,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 if (user == null) {
                     // user auth state is changed - user is null
                     // launch login activity
-                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    //startActivity(new Intent(MainActivity.this, LoginActivity.class));
                     finish();
                 }
             }
@@ -50,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 NavigationHandler.changeToLoginActivity(getApplicationContext());
+                //startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         };
         timer.schedule(timerTask, 5000);
