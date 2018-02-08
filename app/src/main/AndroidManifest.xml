@@ -21,13 +21,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".HelpActivity" />
-        <activity android:name=".CreateAccountActivity" />
-        <activity android:name=".ChooseGameModeActivity" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".SoloGameActivity" />
-        <activity android:name=".LocalGameActivity"></activity>
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HelpActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CreateAccountActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ChooseGameModeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SettingsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SoloGameActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LocalGameActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
