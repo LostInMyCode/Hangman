@@ -4,7 +4,7 @@
     <string name="user_entry">E-Mail</string>
     <string name="mail_adress">E-Mailadresse</string>
     <string name="password_entry">Passwort</string>
-    <string name="repeat_password_entry">Passwort wiederholen</string>
+    <string name="repeat_password_entry">PW wiederholen</string>
     <string name="create_account">Registrieren</string>
     <string name="login">Anmelden</string>
     <string name="solo_player">Einzelspieler</string>
