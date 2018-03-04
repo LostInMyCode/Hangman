@@ -1,11 +1,11 @@
 package com.androidproject.hangman;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
-import android.view.View;
+
+import com.androidproject.hangman.fragments.FragmentActivity;
 
 /**
  * Created by aybarscavus on 17.01.18.
@@ -38,7 +38,7 @@ public class AlertHandler {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
-                        Intent intent = new Intent(context, ChooseGameModeActivity.class);
+                        Intent intent = new Intent(context, FragmentActivity.class);
                         context.startActivity(intent);
                     }
                 });
@@ -55,7 +55,7 @@ public class AlertHandler {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
-                        Intent intent = new Intent(context, ChooseGameModeActivity.class);
+                        Intent intent = new Intent(context, FragmentActivity.class);
                         context.startActivity(intent);
                     }
                 });

@@ -3,6 +3,8 @@ package com.androidproject.hangman;
 import android.content.Context;
 import android.content.Intent;
 
+import com.androidproject.hangman.fragments.FragmentActivity;
+
 /**
  * Created by aybarscavus on 07.12.17.
  */
@@ -14,10 +16,6 @@ public class NavigationHandler {
 
     public static void changeToLoginActivity(Context context) {
         context.startActivity(new Intent(context, LoginActivity.class));
-    }
-
-    public static void changeToChooseGameModeActivity(Context context) {
-        context.startActivity(new Intent(context, ChooseGameModeActivity.class));
     }
 
     public static void changeToSettingsActivity(Context context) {
@@ -38,6 +36,10 @@ public class NavigationHandler {
 
     public static void changeToLocalGameActivity(Context context) {
         context.startActivity(new Intent(context, LocalGameActivity.class));
+    }
+
+    public static void changeToDrawerTest(Context context) {
+        context.startActivity(new Intent(context, FragmentActivity.class));
     }
 
 }

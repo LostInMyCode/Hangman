@@ -4,6 +4,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -21,8 +23,9 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private EditText inputEmail, inputPassword;
     private Button btnSignUp, btnLogIn;
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mDrawerToggle;
 
-    ChooseGameModeActivity gameMode = new ChooseGameModeActivity();
     Boolean loginStatus;
 
 
@@ -31,12 +34,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_vc);
         auth = FirebaseAuth.getInstance();
-
         inputEmail = (EditText) findViewById(R.id.etEmail);
         inputPassword = (EditText) findViewById(R.id.etPassword);
         btnSignUp = (Button) findViewById(R.id.btnCreateAccount);
         btnLogIn = (Button) findViewById(R.id.btnLogin);
-
     }
 
     public void test(View v) {
@@ -71,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             Toast.makeText(getApplicationContext(), "Authentifizierung erfolgreich " + auth.getCurrentUser().getDisplayName(), Toast.LENGTH_LONG).show();
 
-                            NavigationHandler.changeToChooseGameModeActivity(getApplicationContext());
+                            NavigationHandler.changeToDrawerTest(getApplicationContext());
                         }
                     }
                 });

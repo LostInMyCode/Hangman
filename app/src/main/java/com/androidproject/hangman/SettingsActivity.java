@@ -1,13 +1,11 @@
 package com.androidproject.hangman;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -15,17 +13,16 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        initLogoutBtn();
     }
 
-    private void initLogoutBtn() {
-        Button loginButton = (Button) findViewById(R.id.logout_button);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavigationHandler.changeToLoginActivity(getApplicationContext());
-            }
-        });
+    private void logout(View v) {
+        try {
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(getApplicationContext(), "User ist " + FirebaseAuth.getInstance().getCurrentUser().getDisplayName(), Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

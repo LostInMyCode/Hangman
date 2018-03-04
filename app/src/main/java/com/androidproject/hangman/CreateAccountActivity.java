@@ -114,7 +114,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
                                                 Toast.makeText(CreateAccountActivity.this, "Benutzerprofil geupdated", Toast.LENGTH_LONG).show();
-                                                NavigationHandler.changeToChooseGameModeActivity(getApplicationContext());
+                                                NavigationHandler.changeToDrawerTest(getApplicationContext());
                                             }
                                         }
                                     });

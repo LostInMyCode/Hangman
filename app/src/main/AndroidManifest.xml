@@ -21,18 +21,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".CreateAccountActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ChooseGameModeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".SettingsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".SoloGameActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".LocalGameActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateAccountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SoloGameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LocalGameActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".fragments.FragmentActivity"></activity>
     </application>
 
 </manifest>
