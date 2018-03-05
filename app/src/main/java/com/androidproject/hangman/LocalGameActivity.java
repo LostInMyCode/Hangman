@@ -1,7 +1,7 @@
 package com.androidproject.hangman;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +17,11 @@ public class LocalGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_local_game);
         initEditTextView();
         initAcceptButton();
+    }
+
+    @Override
+    public void onBackPressed(){
+        AlertHandler.wantToLeave(this);
     }
 
     private void initEditTextView() {

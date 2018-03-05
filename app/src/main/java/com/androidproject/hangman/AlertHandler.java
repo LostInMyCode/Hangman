@@ -13,6 +13,8 @@ import com.androidproject.hangman.fragments.FragmentActivity;
 
 public class AlertHandler {
 
+    static Context appContext;
+
     public static void showStandardAlert(Context context, String title, String message) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         alertDialogBuilder.create();
@@ -61,4 +63,25 @@ public class AlertHandler {
                 });
         alertDialogBuilder.show();
     }
+
+    public static void wantToLeave(final Context context) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        alertDialogBuilder.create();
+        alertDialogBuilder.setMessage("Bist du dir sicher das du das Spiel verlassen willst?");
+        alertDialogBuilder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                NavigationHandler.changeToDrawerTest(context);
+            }
+        });
+        alertDialogBuilder.setNegativeButton("Nein", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        alertDialogBuilder.show();
+    }
+
 }

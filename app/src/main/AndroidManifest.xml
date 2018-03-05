@@ -36,7 +36,8 @@
         <activity
             android:name=".LocalGameActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".fragments.FragmentActivity"></activity>
+        <activity android:name=".fragments.FragmentActivity" />
+        <activity android:name=".ProfilePicActivity"></activity>
     </application>
 
 </manifest>

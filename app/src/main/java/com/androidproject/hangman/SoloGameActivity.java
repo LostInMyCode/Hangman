@@ -53,7 +53,7 @@ public class SoloGameActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        NavigationHandler.changeToDrawerTest(getApplicationContext());
+        AlertHandler.wantToLeave(this);
     }
 
     private void addLettersToTextView() {
