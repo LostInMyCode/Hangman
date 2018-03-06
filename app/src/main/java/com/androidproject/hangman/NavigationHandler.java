@@ -42,4 +42,8 @@ public class NavigationHandler {
         context.startActivity(new Intent(context, FragmentActivity.class));
     }
 
+    public static void changeToProfilePic(Context context) {
+        context.startActivity(new Intent(context, ProfilePicActivity.class));
+    }
+
 }

@@ -85,8 +85,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void changeToCreateAccount(View v){
-        Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
-        startActivity(intent);
+        NavigationHandler.changeToProfilePic(getApplication());
+        //Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
+        //startActivity(intent);
     }
 
     public void setLoginStatus(Boolean status) {
