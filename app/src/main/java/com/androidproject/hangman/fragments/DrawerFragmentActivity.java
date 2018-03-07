@@ -15,7 +15,7 @@ import com.androidproject.hangman.NavigationHandler;
 import com.androidproject.hangman.R;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class FragmentActivity extends AppCompatActivity {
+public class DrawerFragmentActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private TextView tvUsername, tvUserEmail;

@@ -3,7 +3,7 @@ package com.androidproject.hangman;
 import android.content.Context;
 import android.content.Intent;
 
-import com.androidproject.hangman.fragments.FragmentActivity;
+import com.androidproject.hangman.fragments.DrawerFragmentActivity;
 
 /**
  * Created by aybarscavus on 07.12.17.
@@ -39,11 +39,15 @@ public class NavigationHandler {
     }
 
     public static void changeToDrawerTest(Context context) {
-        context.startActivity(new Intent(context, FragmentActivity.class));
+        context.startActivity(new Intent(context, DrawerFragmentActivity.class));
     }
 
     public static void changeToProfilePic(Context context) {
         context.startActivity(new Intent(context, ProfilePicActivity.class));
+    }
+
+    public static void changeToCreateNewAccount(Context context) {
+        context.startActivity(new Intent(context, CreateAccountActivity.class));
     }
 
 }

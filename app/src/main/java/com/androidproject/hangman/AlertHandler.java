@@ -5,7 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 
-import com.androidproject.hangman.fragments.FragmentActivity;
+import com.androidproject.hangman.fragments.DrawerFragmentActivity;
 
 /**
  * Created by aybarscavus on 17.01.18.
@@ -40,7 +40,7 @@ public class AlertHandler {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
-                        Intent intent = new Intent(context, FragmentActivity.class);
+                        Intent intent = new Intent(context, DrawerFragmentActivity.class);
                         context.startActivity(intent);
                     }
                 });
@@ -57,7 +57,7 @@ public class AlertHandler {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
-                        Intent intent = new Intent(context, FragmentActivity.class);
+                        Intent intent = new Intent(context, DrawerFragmentActivity.class);
                         context.startActivity(intent);
                     }
                 });

@@ -124,4 +124,8 @@ public class CreateAccountActivity extends AppCompatActivity {
                 });
 
     }
+
+    public void changeProfilePic(View v){
+        NavigationHandler.changeToProfilePic(getApplicationContext());
+    }
 }
