@@ -1,16 +1,18 @@
-package com.androidproject.hangman;
+package com.androidproject.hangman.activitys;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 
+import com.androidproject.hangman.handler.NavigationHandler;
+import com.androidproject.hangman.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
 
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;

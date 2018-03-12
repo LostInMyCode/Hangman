@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activitys.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,22 +22,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activitys.SoloGameActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CreateAccountActivity"
+            android:name=".activitys.LocalGameActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".SettingsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".SoloGameActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".LocalGameActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".fragments.DrawerFragmentActivity" />
-        <activity android:name=".ProfilePicActivity"></activity>
+        <activity android:name=".activitys.DrawerFragmentActivity" />
+        <activity android:name=".activitys.UserAccountActivity"></activity>
     </application>
 
 </manifest>

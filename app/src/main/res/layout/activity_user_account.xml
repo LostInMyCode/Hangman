@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.androidproject.hangman.HelpActivity">
+    tools:context="com.androidproject.hangman.activitys.UserAccountActivity">
 
-    tools:context="com.androidproject.hangman.Help">
+    <FrameLayout
+        android:id="@+id/userAccountFrameLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </android.support.constraint.ConstraintLayout>

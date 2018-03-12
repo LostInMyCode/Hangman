@@ -1,18 +1,21 @@
-package com.androidproject.hangman.fragments;
+package com.androidproject.hangman.activitys;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.androidproject.hangman.NavigationHandler;
+import com.androidproject.hangman.handler.NavigationHandler;
 import com.androidproject.hangman.R;
+import com.androidproject.hangman.fragments.ChooseGameModeFragment;
+import com.androidproject.hangman.fragments.SettingsFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class DrawerFragmentActivity extends AppCompatActivity {
@@ -20,6 +23,7 @@ public class DrawerFragmentActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private TextView tvUsername, tvUserEmail;
     private  FirebaseAuth auth;
+    private FragmentManager fm = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +37,11 @@ public class DrawerFragmentActivity extends AppCompatActivity {
         NavigationView nvDrawer = findViewById(R.id.navview);
         mDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         setDrawerContent(nvDrawer);
 
         tvUsername = (TextView) nvDrawer.getHeaderView(0).findViewById(R.id.tvUsername);
         tvUserEmail = (TextView) nvDrawer.getHeaderView(0).findViewById(R.id.tvUserEmail);
         setHeader();
-        FragmentManager fm = getFragmentManager();
         try {
             fm.beginTransaction().replace(R.id.testLinLayout, ChooseGameModeFragment.class.newInstance()).commit();
         }catch (java.lang.InstantiationException | java.lang.IllegalAccessException ex){
@@ -82,8 +84,7 @@ public class DrawerFragmentActivity extends AppCompatActivity {
         }catch (java.lang.InstantiationException | java.lang.IllegalAccessException ex){
             ex.printStackTrace();
         }
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.testLinLayout, fragment).commit();
+        fm.beginTransaction().replace(R.id.testLinLayout, fragment).commit();
         menuItem.setChecked(true);
         mDrawerLayout.closeDrawers();
     }

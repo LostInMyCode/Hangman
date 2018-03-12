@@ -1,0 +1,270 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.androidproject.hangman.fragments.ChooseProfilePicFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/chooseProfilePicIv"
+            android:layout_width="174dp"
+            android:layout_height="160dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_android" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic"
+            style="@android:style/Widget.Material.Light.ImageButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_man"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/ibtnProfilePic2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chooseProfilePicIv"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/ibtnProfilePic3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ibtnProfilePic"
+            app:layout_constraintTop_toBottomOf="@+id/chooseProfilePicIv"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/ibtnProfilePic4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ibtnProfilePic2"
+            app:layout_constraintTop_toBottomOf="@+id/chooseProfilePicIv"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic4"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/ibtnProfilePic5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ibtnProfilePic3"
+            app:layout_constraintTop_toBottomOf="@+id/chooseProfilePicIv"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic5"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="32dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ibtnProfilePic4"
+            app:layout_constraintTop_toBottomOf="@+id/chooseProfilePicIv"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic6"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/ibtnProfilePic7"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ibtnProfilePic"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic7"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/ibtnProfilePic8"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ibtnProfilePic6"
+            app:layout_constraintTop_toBottomOf="@+id/ibtnProfilePic2"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic8"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/ibtnProfilePic9"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ibtnProfilePic7"
+            app:layout_constraintTop_toBottomOf="@+id/ibtnProfilePic3"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic9"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/ibtnProfilePic10"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ibtnProfilePic8"
+            app:layout_constraintTop_toBottomOf="@+id/ibtnProfilePic4"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic10"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ibtnProfilePic9"
+            app:layout_constraintTop_toBottomOf="@+id/ibtnProfilePic5"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic11"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/ibtnProfilePic12"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ibtnProfilePic6"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic12"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/ibtnProfilePic13"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ibtnProfilePic11"
+            app:layout_constraintTop_toBottomOf="@+id/ibtnProfilePic7"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic13"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/ibtnProfilePic14"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ibtnProfilePic12"
+            app:layout_constraintTop_toBottomOf="@+id/ibtnProfilePic8"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic14"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/ibtnProfilePic15"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ibtnProfilePic13"
+            app:layout_constraintTop_toBottomOf="@+id/ibtnProfilePic9"
+            app:srcCompat="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/ibtnProfilePic15"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_android"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ibtnProfilePic14"
+            app:layout_constraintTop_toBottomOf="@+id/ibtnProfilePic10"
+            app:srcCompat="@android:color/transparent" />
+
+        <Button
+            android:id="@+id/btnAcceptPic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="8dp"
+            android:text="Accept"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnCancelPic"
+            app:layout_constraintTop_toBottomOf="@+id/ibtnProfilePic14" />
+
+        <Button
+            android:id="@+id/btnCancelPic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:text="Cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnAcceptPic"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ibtnProfilePic12" />
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

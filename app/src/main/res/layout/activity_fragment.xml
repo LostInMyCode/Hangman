@@ -5,7 +5,7 @@
     android:id="@+id/loginDrawLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.androidproject.hangman.fragments.DrawerFragmentActivity"
+    tools:context="com.androidproject.hangman.activitys.DrawerFragmentActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp">
 
@@ -13,7 +13,7 @@
         android:id="@+id/testLinLayout"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent" />
 
     <android.support.design.widget.NavigationView
         android:id="@+id/navview"

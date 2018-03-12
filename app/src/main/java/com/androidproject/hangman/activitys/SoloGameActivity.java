@@ -1,16 +1,21 @@
-package com.androidproject.hangman;
+package com.androidproject.hangman.activitys;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.androidproject.hangman.handler.AlertHandler;
+import com.androidproject.hangman.dataHandling.AppData;
+import com.androidproject.hangman.handler.NavigationHandler;
+import com.androidproject.hangman.R;
+
 import java.util.ArrayList;
 
-public class SoloGameActivity extends AppCompatActivity {
+public class SoloGameActivity extends FragmentActivity {
     
     int maxTry = 10;
     int failureCount = 1;

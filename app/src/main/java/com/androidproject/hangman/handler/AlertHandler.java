@@ -1,11 +1,11 @@
-package com.androidproject.hangman;
+package com.androidproject.hangman.handler;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 
-import com.androidproject.hangman.fragments.DrawerFragmentActivity;
+import com.androidproject.hangman.activitys.DrawerFragmentActivity;
 
 /**
  * Created by aybarscavus on 17.01.18.

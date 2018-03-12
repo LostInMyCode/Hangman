@@ -76,11 +76,11 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/ivCreatedAccount"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivCreatedAccount"
         android:layout_width="90dp"
         android:layout_height="86dp"
         android:layout_marginEnd="8dp"
@@ -90,7 +90,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:srcCompat="@drawable/ic_gitcat" />
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButton2"
@@ -105,8 +105,8 @@
         app:fabSize="mini"
         app:layout_constraintEnd_toStartOf="@+id/etUsername"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/ivCreatedAccount"
+        app:layout_constraintTop_toTopOf="@+id/ivCreatedAccount"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <TextView

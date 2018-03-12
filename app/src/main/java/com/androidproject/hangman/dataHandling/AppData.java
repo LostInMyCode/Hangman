@@ -1,4 +1,4 @@
-package com.androidproject.hangman;
+package com.androidproject.hangman.dataHandling;
 
 import android.content.SharedPreferences;
 import android.content.Context;
