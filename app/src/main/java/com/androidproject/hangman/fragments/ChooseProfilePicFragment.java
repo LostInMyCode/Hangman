@@ -149,8 +149,10 @@ public class ChooseProfilePicFragment extends Fragment {
         if (model.getProfilePic() != null){
             profilPicIv.setImageDrawable(model.getProfilePic());
         }else{
-            profilPicIv.setImageDrawable(ibtnProfilePic.getDrawable());
+            profilPicIv.setImageDrawable(ibtnProfilePic.getBackground());
+            //profilPicIv.setImageURI();
         }
+
         return v;
     }
 
