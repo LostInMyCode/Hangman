@@ -150,12 +150,12 @@ public class LoginFragment extends Fragment {
         final String password = inputPassword.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(getActivity(), "Enter email address!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "E-Mailadresse eingeben", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (TextUtils.isEmpty(password)) {
-            Toast.makeText(getActivity(), "Enter password!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Passwort eingeben", Toast.LENGTH_SHORT).show();
             return;
         }
 
