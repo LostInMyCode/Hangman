@@ -68,8 +68,9 @@
     <string name="example">z.B. Haus, Intel, AMD</string>
     <string name="defaultvalue">TextView</string>
     <string name="passwordreset">Passwort zurücksetzten</string>
+    <string name="enterMail">Bitte geben sie ihrer E-Mailadresse ein</string>
 
 
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

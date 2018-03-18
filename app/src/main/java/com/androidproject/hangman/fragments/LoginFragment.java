@@ -36,16 +36,16 @@ import java.io.IOException;
  * create an instance of this fragment.
  */
 public class LoginFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private FirebaseAuth auth;
     private EditText inputEmail, inputPassword;
-    private Button btnSignUp, btnLogIn;
+    private Button btnSignUp, btnLogIn, btnReset;
 
 
-    // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
 
@@ -63,7 +63,7 @@ public class LoginFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment LoginFragment.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static LoginFragment newInstance(String param1, String param2) {
         LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
@@ -92,6 +92,7 @@ public class LoginFragment extends Fragment {
         inputPassword = (EditText) v.findViewById(R.id.etPassword);
         btnSignUp = (Button) v.findViewById(R.id.btnCreateAccount);
         btnLogIn = (Button) v.findViewById(R.id.btnLogin);
+        btnReset = v.findViewById(R.id.btnReset);
 
 
         View.OnClickListener singUpListener = new View.OnClickListener() {
@@ -107,13 +108,26 @@ public class LoginFragment extends Fragment {
             }
         };
 
+        View.OnClickListener resetPassListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                try {
+                    fragmentManager.beginTransaction().replace(R.id.userAccountFrameLayout, ResetPasswordFragment.class.newInstance()).commit();
+                } catch (java.lang.InstantiationException | java.lang.IllegalAccessException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        };
+
         btnLogIn.setOnClickListener(loginListener);
         btnSignUp.setOnClickListener(singUpListener);
+        btnReset.setOnClickListener(resetPassListener);
 
         return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -203,7 +217,7 @@ public class LoginFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+
         void onFragmentInteraction(Uri uri);
     }
 }

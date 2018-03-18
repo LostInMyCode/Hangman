@@ -28,7 +28,7 @@ import com.google.firebase.auth.FirebaseUser;
  * create an instance of this fragment.
  */
 public class SettingsFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -37,7 +37,7 @@ public class SettingsFragment extends Fragment {
     private View v;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-    // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
 
@@ -55,7 +55,7 @@ public class SettingsFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment SettingsFragment.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static SettingsFragment newInstance(String param1, String param2) {
         SettingsFragment fragment = new SettingsFragment();
         Bundle args = new Bundle();
@@ -162,7 +162,7 @@ public class SettingsFragment extends Fragment {
         return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -191,7 +191,7 @@ public class SettingsFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+
         void onFragmentInteraction(Uri uri);
     }
 }

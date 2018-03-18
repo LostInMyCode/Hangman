@@ -21,12 +21,12 @@ import com.androidproject.hangman.R;
  * create an instance of this fragment.
  */
 public class ChooseGameModeFragment extends Fragment implements View.OnClickListener {
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
     private Button localgamebtn;
@@ -47,7 +47,7 @@ public class ChooseGameModeFragment extends Fragment implements View.OnClickList
      * @param param2 Parameter 2.
      * @return A new instance of fragment ChooseGameModeFragment.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static ChooseGameModeFragment newInstance(String param1, String param2) {
         ChooseGameModeFragment fragment = new ChooseGameModeFragment();
         Bundle args = new Bundle();
@@ -71,9 +71,9 @@ public class ChooseGameModeFragment extends Fragment implements View.OnClickList
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_choose_game_mode, container, false);
-        sologamebtn = (Button) v.findViewById(R.id.solo_game_button);
-        localgamebtn = (Button) v.findViewById(R.id.local_game_button);
-        onlinegamebtn = (Button) v.findViewById(R.id.multiplayer_button);
+        sologamebtn = v.findViewById(R.id.solo_game_button);
+        localgamebtn =  v.findViewById(R.id.local_game_button);
+        onlinegamebtn =  v.findViewById(R.id.multiplayer_button);
 
         sologamebtn.setOnClickListener(this);
         localgamebtn.setOnClickListener(this);
@@ -82,7 +82,7 @@ public class ChooseGameModeFragment extends Fragment implements View.OnClickList
         return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -137,7 +137,7 @@ public class ChooseGameModeFragment extends Fragment implements View.OnClickList
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+
         void onFragmentInteraction(Uri uri);
     }
 }
