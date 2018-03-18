@@ -30,7 +30,7 @@ public class DrawableOnSuccessListener implements OnSuccessListener<FileDownload
     public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
         fromFireStorageInstance.newEntryProfilePicHashMap(imageUrl, Drawable.createFromPath(localFile.getAbsolutePath()));
         if (count == 10){
-            main.setTimer();
+            //main.setTimer();
         }
         count++;
     }

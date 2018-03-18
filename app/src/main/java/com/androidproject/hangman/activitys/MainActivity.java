@@ -42,6 +42,7 @@ public class MainActivity extends FragmentActivity {
             }
         };
         GetFromFireStorage.getInstance().getProfilePics(this);
+        setTimer();
     }
 
     @Override
@@ -58,7 +59,7 @@ public class MainActivity extends FragmentActivity {
                 //startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         };
-        timer.schedule(timerTask, 3000);
+        timer.schedule(timerTask, 10000);
     }
 
 }
