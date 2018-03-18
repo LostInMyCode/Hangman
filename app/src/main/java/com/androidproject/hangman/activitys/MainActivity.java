@@ -4,8 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 
-import com.androidproject.hangman.handler.NavigationHandler;
 import com.androidproject.hangman.R;
+import com.androidproject.hangman.handler.GetFromFireStorage;
+import com.androidproject.hangman.handler.NavigationHandler;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -40,7 +41,13 @@ public class MainActivity extends FragmentActivity {
                 }
             }
         };
+        GetFromFireStorage.getInstance().getProfilePics();
         setTimer();
+    }
+
+    @Override
+    public void onBackPressed(){
+
     }
 
     private void setTimer() {

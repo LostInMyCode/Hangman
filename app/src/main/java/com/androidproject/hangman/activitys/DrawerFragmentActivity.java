@@ -10,19 +10,22 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.androidproject.hangman.handler.NavigationHandler;
 import com.androidproject.hangman.R;
+import com.androidproject.hangman.dataHandling.CurrentUser;
 import com.androidproject.hangman.fragments.ChooseGameModeFragment;
 import com.androidproject.hangman.fragments.SettingsFragment;
+import com.androidproject.hangman.handler.NavigationHandler;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class DrawerFragmentActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private TextView tvUsername, tvUserEmail;
-    private  FirebaseAuth auth;
+    private ImageView ivProfilpic;
+    private FirebaseAuth auth;
     private FragmentManager fm = getSupportFragmentManager();
 
     @Override
@@ -41,6 +44,7 @@ public class DrawerFragmentActivity extends AppCompatActivity {
 
         tvUsername = (TextView) nvDrawer.getHeaderView(0).findViewById(R.id.tvUsername);
         tvUserEmail = (TextView) nvDrawer.getHeaderView(0).findViewById(R.id.tvUserEmail);
+        ivProfilpic = nvDrawer.getHeaderView(0).findViewById(R.id.ivProfilepic);
         setHeader();
         try {
             fm.beginTransaction().replace(R.id.testLinLayout, ChooseGameModeFragment.class.newInstance()).commit();
@@ -53,6 +57,7 @@ public class DrawerFragmentActivity extends AppCompatActivity {
     public void setHeader(){
         tvUserEmail.setText(auth.getCurrentUser().getEmail());
         tvUsername.setText(auth.getCurrentUser().getDisplayName());
+        ivProfilpic.setImageDrawable(CurrentUser.getInstance().getProfilePic());
     }
 
     @Override
@@ -61,6 +66,11 @@ public class DrawerFragmentActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(menuItem);
+    }
+
+    @Override
+    public void onBackPressed(){
+
     }
 
     public void selectDrawerMenu(MenuItem menuItem){

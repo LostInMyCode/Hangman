@@ -29,7 +29,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:adjustViewBounds="true"
-            android:background="@drawable/ic_man"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toStartOf="@+id/ibtnProfilePic2"
             app:layout_constraintHorizontal_bias="0.5"

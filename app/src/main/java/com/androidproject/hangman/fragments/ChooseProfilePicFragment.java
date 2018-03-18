@@ -16,6 +16,10 @@ import android.widget.ImageView;
 
 import com.androidproject.hangman.R;
 import com.androidproject.hangman.dataHandling.UserAccountViewModel;
+import com.androidproject.hangman.handler.GetFromFireStorage;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,6 +41,7 @@ public class ChooseProfilePicFragment extends Fragment {
     private ImageButton ibtnProfilePic5, ibtnProfilePic6, ibtnProfilePic7, ibtnProfilePic8;
     private ImageButton ibtnProfilePic9, ibtnProfilePic10, ibtnProfilePic11, ibtnProfilePic12;
     private ImageButton ibtnProfilePic13, ibtnProfilePic14, ibtnProfilePic15;
+    private GetFromFireStorage test = GetFromFireStorage.getInstance();
     private View v;
     private FragmentManager fm;
 
@@ -146,13 +151,20 @@ public class ChooseProfilePicFragment extends Fragment {
         ibtnProfilePic14.setOnClickListener(ibtnListener);
         ibtnProfilePic15.setOnClickListener(ibtnListener);
 
-        if (model.getProfilePic() != null){
+
+        if (model.getProfilePic() != null) {
             profilPicIv.setImageDrawable(model.getProfilePic());
-        }else{
+        } else {
             profilPicIv.setImageDrawable(ibtnProfilePic.getBackground());
             //profilPicIv.setImageURI();
         }
 
+        ImageButton[] ibtnArray = {ibtnProfilePic, ibtnProfilePic2, ibtnProfilePic3, ibtnProfilePic4,
+                ibtnProfilePic5, ibtnProfilePic6, ibtnProfilePic7, ibtnProfilePic8, ibtnProfilePic9,
+                ibtnProfilePic10, ibtnProfilePic11, ibtnProfilePic12, ibtnProfilePic13, ibtnProfilePic14,
+                ibtnProfilePic15};
+
+        loadProfilePics(ibtnArray);
         return v;
     }
 
@@ -176,10 +188,14 @@ public class ChooseProfilePicFragment extends Fragment {
 
     public void imageSelected(Drawable buttonImage) {
         profilPicIv.setImageDrawable(buttonImage);
+        Boolean b =test.getProfilePicDrawableHashMap().containsKey(buttonImage);
+        String t = test.getProfilePicDrawableHashMap().get(buttonImage);
+
     }
 
     public void acceptProfilePic() {
         model.setProfilePic(profilPicIv.getDrawable());
+        model.setProfilePicUrl(test.getProfilePicDrawableHashMap().get(profilPicIv.getDrawable()));
         try {
             fm.beginTransaction().replace(R.id.userAccountFrameLayout, CreateAccountFragment.class.newInstance()).commit();
         } catch (java.lang.InstantiationException | java.lang.IllegalAccessException ex) {
@@ -189,6 +205,18 @@ public class ChooseProfilePicFragment extends Fragment {
     }
 
     public void cancelProfilePic() {
+
+    }
+
+    public void loadProfilePics(ImageButton[] ibtnArray) {
+
+        HashMap<Drawable, String> profilePicHashMap = test.getProfilePicDrawableHashMap();
+        int i = 0;
+        for (Map.Entry<Drawable, String> entry : profilePicHashMap.entrySet()){
+
+            ibtnArray[i].setBackground(entry.getKey());
+            i++;
+        }
 
     }
 

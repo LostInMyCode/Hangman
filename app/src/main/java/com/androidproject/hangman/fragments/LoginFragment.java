@@ -1,11 +1,11 @@
 package com.androidproject.hangman.fragments;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,12 +14,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.androidproject.hangman.handler.NavigationHandler;
 import com.androidproject.hangman.R;
+import com.androidproject.hangman.handler.ProfilePicOnSuccessListener;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -152,8 +158,8 @@ public class LoginFragment extends Fragment {
                             }
                         } else {
                             Toast.makeText(getActivity(), "Authentifizierung erfolgreich " + auth.getCurrentUser().getDisplayName(), Toast.LENGTH_LONG).show();
-
-                            NavigationHandler.changeToDrawerTest(getActivity());
+                            loadProfilePic(auth.getCurrentUser().getPhotoUrl().toString());
+                            //NavigationHandler.changeToDrawerTest(getActivity());
                         }
                     }
                 });
@@ -167,6 +173,24 @@ public class LoginFragment extends Fragment {
             ex.printStackTrace();
         }
     }
+
+    public void loadProfilePic(String profilePicURL){
+        FirebaseStorage storageInstance = FirebaseStorage.getInstance();
+        StorageReference image = storageInstance.getReferenceFromUrl(profilePicURL);
+            try {
+                File localFile;
+                localFile = File.createTempFile("profilepic", ".png");
+                image.getFile(localFile).addOnSuccessListener(new ProfilePicOnSuccessListener(localFile, getContext())).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        String re = "";
+                    }
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+
 
     /**
      * This interface must be implemented by activities that contain this

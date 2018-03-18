@@ -25,4 +25,9 @@ public class UserAccountActivity extends FragmentActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed(){
+
+    }
 }

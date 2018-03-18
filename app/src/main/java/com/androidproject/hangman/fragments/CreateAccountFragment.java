@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.androidproject.hangman.dataHandling.CurrentUser;
 import com.androidproject.hangman.handler.NavigationHandler;
 import com.androidproject.hangman.R;
 import com.androidproject.hangman.dataHandling.UserAccountViewModel;
@@ -222,10 +223,10 @@ public class CreateAccountFragment extends Fragment {
                     Toast.makeText(getActivity(), "Authentifizierung erfolgreich", Toast.LENGTH_SHORT).show();
 
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
+                    CurrentUser.getInstance().setProfilePic(model.getProfilePic());
                     UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                             .setDisplayName(username)
-                            //.setPhotoUri(Uri.parse("URL"))
+                            .setPhotoUri(Uri.parse(model.getProfilePicUrl()))
                             .build();
                     user.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

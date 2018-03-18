@@ -3,6 +3,10 @@ package com.androidproject.hangman.dataHandling;
 import android.arch.lifecycle.ViewModel;
 import android.graphics.drawable.Drawable;
 
+import com.androidproject.hangman.handler.GetFromFireStorage;
+
+import java.util.Map;
+
 /**
  * Created by Someone on 10.03.2018.
  */
@@ -12,7 +16,15 @@ public class UserAccountViewModel extends ViewModel {
     private String emailadress;
     private String password;
     private String repeatPassword;
+    private String profilePicUrl;
     private Drawable profilePic;
+
+    public UserAccountViewModel(){
+        for (Map.Entry<Drawable,String> entry : GetFromFireStorage.getInstance().getProfilePicDrawableHashMap().entrySet()){
+            profilePic = entry.getKey();
+            profilePicUrl = entry.getValue();
+        }
+    }
 
 
     public String getUsername() {
@@ -53,5 +65,13 @@ public class UserAccountViewModel extends ViewModel {
 
     public void setProfilePic(Drawable profilePic) {
         this.profilePic = profilePic;
+    }
+
+    public String getProfilePicUrl() {
+        return profilePicUrl;
+    }
+
+    public void setProfilePicUrl(String profilePicUrl) {
+        this.profilePicUrl = profilePicUrl;
     }
 }
