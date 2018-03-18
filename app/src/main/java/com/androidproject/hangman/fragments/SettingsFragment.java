@@ -3,12 +3,21 @@ package com.androidproject.hangman.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.androidproject.hangman.R;
+import com.androidproject.hangman.handler.NavigationHandler;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +32,10 @@ public class SettingsFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private Button btnChangeEmail, btnChangePasswort, btnDeleteUser;
+    private EditText etChangeEmail, etChangePasswort;
+    private View v;
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -64,8 +77,89 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+        v = inflater.inflate(R.layout.fragment_settings, container, false);
+
+        btnChangeEmail = v.findViewById(R.id.btnChangeEmail);
+        btnChangePasswort = v.findViewById(R.id.btnChangePasswort);
+        btnDeleteUser = v.findViewById(R.id.btnDeleteUser);
+        etChangeEmail = v.findViewById(R.id.etChangeEmail);
+        etChangePasswort = v.findViewById(R.id.etChangePasswort);
+
+        View.OnClickListener changePW = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (user != null && !etChangePasswort.getText().toString().trim().equals("")) {
+                    if (etChangePasswort.getText().toString().trim().length() < 6) {
+                        etChangePasswort.setError("Passwot min. 6 Zeichen");
+                    } else {
+                        user.updatePassword(etChangePasswort.getText().toString().trim())
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(getActivity(), "Passwort wurde geändert, bitte neu einloggen", Toast.LENGTH_SHORT).show();
+                                            FirebaseAuth.getInstance().signOut();
+                                            NavigationHandler.changeToLoginActivity(getActivity());
+                                        } else {
+                                            Toast.makeText(getActivity(), "Passwort konnte nicht geändert werden", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                    }
+                } else if (etChangePasswort.getText().toString().trim().equals("")) {
+                    etChangePasswort.setError("Bitte geben sie ein Passwort ein");
+                }
+            }
+        };
+
+        View.OnClickListener changeMail = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (user != null && !etChangeEmail.getText().toString().trim().equals("")) {
+                    user.updateEmail(etChangeEmail.getText().toString().trim())
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(getActivity(), "E-mailadresse wurde geändert, bitte neu einloggen", Toast.LENGTH_LONG).show();
+                                        FirebaseAuth.getInstance().signOut();
+                                        NavigationHandler.changeToLoginActivity(getActivity());
+                                    } else {
+                                        Toast.makeText(getActivity(), "E-Mailadresse konnte nicht geändert werden", Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+                } else if (etChangeEmail.getText().toString().trim().equals("")) {
+                    etChangeEmail.setError("Bitte geben sie eine E-Mailadresse ein");
+                }
+            }
+        };
+
+        View.OnClickListener deleteUserListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (user != null) {
+                    user.delete()
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(getActivity(), "Ihr Account/Benutzer wurde gelöscht", Toast.LENGTH_SHORT).show();
+                                        NavigationHandler.changeToLoginActivity(getActivity());
+                                    } else {
+                                        Toast.makeText(getActivity(), "Löschen des Accounts/Benutzers fehlgeschlagen", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
+            }
+        };
+
+        btnChangePasswort.setOnClickListener(changePW);
+        btnChangeEmail.setOnClickListener(changeMail);
+        btnDeleteUser.setOnClickListener(deleteUserListener);
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -3,6 +3,7 @@ package com.androidproject.hangman.handler;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 
+import com.androidproject.hangman.activitys.MainActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,6 +30,7 @@ public class GetFromFireStorage {
     private HashMap<Drawable, String> profilePicDrawableHashMap = new HashMap<>();
     private File localFile;
     private Drawable t;
+    private MainActivity main;
 
 
     private GetFromFireStorage() {
@@ -44,9 +46,9 @@ public class GetFromFireStorage {
         }
     }
 
-    public void getProfilePics() {
+    public void getProfilePics(MainActivity main) {
         DatabaseReference picRef = databaseInstance.getReference("profilePictures");
-
+        this.main = main;
         picRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -76,7 +78,7 @@ public class GetFromFireStorage {
                 e.printStackTrace();
             }
 
-            image.getFile(localFile).addOnSuccessListener(new DrawableOnSuccessListener(localFile, entry.getValue())).addOnFailureListener(new OnFailureListener() {
+            image.getFile(localFile).addOnSuccessListener(new DrawableOnSuccessListener(localFile, entry.getValue(), main)).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception exception) {
                 }
@@ -86,6 +88,7 @@ public class GetFromFireStorage {
 
 
     }
+
 
     public HashMap<Drawable,String> getProfilePicDrawableHashMap() {
         return profilePicDrawableHashMap;

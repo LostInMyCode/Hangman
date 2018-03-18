@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.androidproject.hangman.R;
 import com.androidproject.hangman.dataHandling.CurrentUser;
 import com.androidproject.hangman.fragments.ChooseGameModeFragment;
+import com.androidproject.hangman.fragments.CreditsFragment;
 import com.androidproject.hangman.fragments.SettingsFragment;
 import com.androidproject.hangman.handler.NavigationHandler;
 import com.google.firebase.auth.FirebaseAuth;
@@ -75,7 +76,7 @@ public class DrawerFragmentActivity extends AppCompatActivity {
 
     public void selectDrawerMenu(MenuItem menuItem){
         Fragment fragment = null;
-        Class fragmentClass;
+        Class fragmentClass = ChooseGameModeFragment.class;;
         switch (menuItem.getItemId()){
             case R.id.chooseGamemod:
                 fragmentClass = ChooseGameModeFragment.class;
@@ -86,8 +87,10 @@ public class DrawerFragmentActivity extends AppCompatActivity {
             case R.id.logout:
                 auth.signOut();
                 NavigationHandler.changeToLoginActivity(this);
-            default:
-                fragmentClass = ChooseGameModeFragment.class;
+                break;
+            case R.id.credits:
+                fragmentClass = CreditsFragment.class;
+                break;
         }
         try{
             fragment = (Fragment) fragmentClass.newInstance();

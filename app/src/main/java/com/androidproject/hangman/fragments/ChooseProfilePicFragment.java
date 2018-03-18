@@ -205,7 +205,12 @@ public class ChooseProfilePicFragment extends Fragment {
     }
 
     public void cancelProfilePic() {
-
+        FragmentManager fragmentManager = getFragmentManager();
+        try {
+            fragmentManager.beginTransaction().replace(R.id.userAccountFrameLayout, CreateAccountFragment.class.newInstance()).commit();
+        } catch (java.lang.InstantiationException | java.lang.IllegalAccessException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void loadProfilePics(ImageButton[] ibtnArray) {

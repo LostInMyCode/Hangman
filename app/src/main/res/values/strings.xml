@@ -51,6 +51,11 @@
     <string name="open">Öffnen</string>
     <string name="close">Schließen</string>
     <string name="gamemode">Spielmodis</string>
+    <string name="credits">Credits</string>
+    <string name="newMail">E-Mailadresse ändern</string>
+    <string name="newPassword">Passwort ändern</string>
+    <string name="deleteUser">Account löschen</string>
+    <string name="change">Ändern</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

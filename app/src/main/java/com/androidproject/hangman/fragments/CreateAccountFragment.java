@@ -16,10 +16,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.androidproject.hangman.dataHandling.CurrentUser;
-import com.androidproject.hangman.handler.NavigationHandler;
 import com.androidproject.hangman.R;
+import com.androidproject.hangman.dataHandling.CurrentUser;
 import com.androidproject.hangman.dataHandling.UserAccountViewModel;
+import com.androidproject.hangman.handler.NavigationHandler;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -45,7 +45,7 @@ public class CreateAccountFragment extends Fragment {
     private FirebaseAuth auth;
     private EditText inputUsername, inputEmail, inputPassword, inputRepeatPassword;
     private FloatingActionButton fabAadPic;
-    private Button btnSignUp;
+    private Button btnSignUp, btnCancel;
     private ImageView ivProfilePic;
     private UserAccountViewModel model;
 
@@ -102,6 +102,7 @@ public class CreateAccountFragment extends Fragment {
         btnSignUp = (Button) v.findViewById(R.id.btnCreateAccount);
         fabAadPic = (FloatingActionButton) v.findViewById(R.id.floatingActionButton2);
         ivProfilePic = (ImageView) v.findViewById(R.id.ivCreatedAccount);
+        btnCancel = v.findViewById(R.id.btnCancel);
 
         View.OnClickListener singUpListener = new View.OnClickListener() {
             public void onClick(View v) {
@@ -113,6 +114,18 @@ public class CreateAccountFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 chooseProfilePic();
+            }
+        };
+
+        View.OnClickListener canecListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                try {
+                    fragmentManager.beginTransaction().replace(R.id.userAccountFrameLayout, CreateAccountFragment.class.newInstance()).commit();
+                } catch (java.lang.InstantiationException | java.lang.IllegalAccessException ex) {
+                    ex.printStackTrace();
+                }
             }
         };
 
@@ -135,6 +148,20 @@ public class CreateAccountFragment extends Fragment {
         if (model.getUsername() != null) {
             inputUsername.setText(model.getUsername());
         }
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                try {
+                    fragmentManager.beginTransaction().replace(R.id.userAccountFrameLayout, LoginFragment.class.newInstance()).commit();
+                } catch (java.lang.InstantiationException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         return v;
     }
