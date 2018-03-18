@@ -1,14 +1,13 @@
 package com.androidproject.hangman.dataHandling;
 
-import android.content.SharedPreferences;
 import android.content.Context;
-import android.os.Bundle;
+import android.content.SharedPreferences;
 
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 /**
  * Created by aybarscavus on 09.11.17.
@@ -36,7 +35,33 @@ public class AppData {
         arrayList.add("Physiognomie");
         arrayList.add("Hydroxylgruppe");
         arrayList.add("Quantitativ");
-        arrayList.add("LSD");
+        arrayList.add("Developer");
+        arrayList.add("AEP");
+        arrayList.add("Intel");
+        arrayList.add("AMD");
+        arrayList.add("NVIDIA");
+        arrayList.add("Python");
+        arrayList.add("Swift");
+        arrayList.add("Java");
+        arrayList.add("Firebase");
+        arrayList.add("Haus");
+        arrayList.add("Boot");
+        arrayList.add("Traktor");
+        arrayList.add("JackDaniels");
+        arrayList.add("Wasweißich");
+        arrayList.add("Baum");
+        arrayList.add("Schnee");
+        arrayList.add("Winter");
+        arrayList.add("Sommer");
+        arrayList.add("Strand");
+        arrayList.add("Italien");
+        arrayList.add("Flugzeug");
+        arrayList.add("SolidStateDrive");
+        arrayList.add("RandomAccessMemory");
+        arrayList.add("Kino");
+        arrayList.add("Freizeitpark");
+        arrayList.add("Game");
+        arrayList.add("Android");
         Set<String> set = new HashSet<String>();
         set.addAll(arrayList);
         editor.putStringSet("words", set);
