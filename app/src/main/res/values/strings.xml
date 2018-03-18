@@ -4,7 +4,7 @@
     <string name="user_entry">E-Mail</string>
     <string name="mail_adress">E-Mailadresse</string>
     <string name="password_entry">Passwort</string>
-    <string name="repeat_password_entry">PW wiederholen</string>
+    <string name="repeat_password_entry">Passwort wiederholen</string>
     <string name="create_account">Registrieren</string>
     <string name="login">Anmelden</string>
     <string name="solo_player">Einzelspieler</string>
@@ -58,6 +58,16 @@
     <string name="change">Ändern</string>
     <string name="ok">Ok</string>
     <string name="cancel">Abbrechen</string>
+    <string name="pleaselogin">Bitte anmelden</string>
+    <string name="credit">Android Hive</string>
+    <string name="credit2">Google-Firebase</string>
+    <string name="credit3">shareicon.net</string>
+    <string name="credit4">flaticon.net</string>
+    <string name="username">Benutzername</string>
+    <string name="profilepic">Profilebild</string>
+    <string name="example">z.B. Haus, Intel, AMD</string>
+    <string name="defaultvalue">TextView</string>
+    <string name="passwordreset">Passwort zurücksetzten</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

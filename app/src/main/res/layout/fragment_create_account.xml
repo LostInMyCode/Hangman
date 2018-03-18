@@ -73,7 +73,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginTop="132dp"
             android:ems="10"
-            android:hint="Benutzername"
+            android:hint="@string/username"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="60dp"
-            android:text="Profilbild"
+            android:text="@string/profilepic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
