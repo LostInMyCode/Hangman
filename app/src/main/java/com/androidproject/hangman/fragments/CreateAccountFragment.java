@@ -222,13 +222,13 @@ public class CreateAccountFragment extends Fragment {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(getActivity(), "Benutzer erfolgreich erstellt", Toast.LENGTH_SHORT).show();
                         if (!task.isSuccessful()) {
-                            Toast.makeText(getActivity(), "Benutzer konnte nicht erstellt werden" + task.getException(),
+                            Toast.makeText(getActivity(), "Benutzer konnte nicht erstellt werden\n" + task.getException(),
                                     Toast.LENGTH_SHORT).show();
-                            Toast.makeText(getActivity(), "Benutzer erfolgreich erstellt", Toast.LENGTH_SHORT).show();
+
                         } else {
                             loginAfterSuccess(email, password);
+                            Toast.makeText(getActivity(), "Benutzer erfolgreich erstellt", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
